@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Цветы от Насти — букеты с любовью</title>
+<meta name="description" content="Авторские букеты от Насти. Красивые цветы для особенных моментов.">
+<style>
+:root{--pink:#d9879b;--cream:#fffaf6;--dark:#34272b;--muted:#786a6c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--dark);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f0e2df}
+.logo{font-family:Georgia,serif;font-size:23px;font-weight:bold}
+.logo span{color:var(--pink)}
+header a,.btn{color:white;background:var(--dark);padding:12px 17px;border-radius:30px;text-decoration:none;font-size:14px;border:0;cursor:pointer}
+.hero{padding:65px 6% 55px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.eyebrow{color:#b66f83;text-transform:uppercase;letter-spacing:3px;font-size:12px}
+h1{font-family:Georgia,serif;font-size:clamp(42px,6vw,72px);line-height:1.05;font-weight:normal;margin:18px 0}
+.hero p{font-size:17px;line-height:1.7;color:var(--muted);max-width:440px}
+.hero img{width:100%;height:400px;object-fit:cover;border-radius:48% 48% 12px 12px}
+.btn{display:inline-block;margin-top:16px;background:var(--pink);font-size:15px}
+section{padding:45px 6%}
+.section-title{text-align:center;font-family:Georgia,serif;font-weight:normal;font-size:42px;margin:0 0 12px}
+.subtitle{text-align:center;color:var(--muted);margin:0 0 35px}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product{background:white;border-radius:16px;overflow:hidden;box-shadow:0 7px 25px #55333a0b}
+.product img{width:100%;height:270px;object-fit:cover;display:block}
+.info{padding:18px}
+.info h3{font-family:Georgia,serif;font-size:23px;font-weight:normal;margin:0 0 8px}
+.info p{color:var(--muted);font-size:14px;min-height:35px}
+.price{font-size:19px;font-weight:700}
+.add{float:right;border:0;border-radius:50%;width:38px;height:38px;background:#f7e5e9;color:#9b5367;font-size:24px;cursor:pointer}
+.cart{max-width:650px;margin:0 auto;background:white;padding:25px;border-radius:18px}
+.cart-row{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #f1e8e5}
+.cart-row button{border:0;background:#f7e5e9;border-radius:8px;padding:4px 9px}
+.total{font-size:21px;font-weight:bold;text-align:right;margin:22px 0}
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:14px;border:1px solid #eadbd9;border-radius:10px;font:inherit;background:#fffdfb}
+footer{text-align:center;padding:35px 15px;background:#f6eae7;color:var(--muted);line-height:1.8}
+@media(max-width:700px){.hero{grid-template-columns:1fr;padding-top:40px}.hero img{height:300px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product img{height:190px}.info{padding:12px}.info h3{font-size:19px}.section-title{font-size:34px}}
+@media(max-width:420px){.products{grid-template-columns:1fr}.product img{height:260px}header{padding:16px 5%}.logo{font-size:19px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Цветы <span>от Насти</span></div>
+  <a href="#catalog">Выбрать букет</a>
+</header>
 
+<main>
+<section class="hero">
+  <div>
+    <div class="eyebrow">Цветочная мастерская</div>
+    <h1>Красивые чувства в каждом букете</h1>
+    <p>Нежные оттенки, свежие цветы и композиции, созданные с душой. Для признаний, важных дат и просто так.</p>
+    <a class="btn" href="#catalog">Найти свой букет ↗</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=1000&q=85" alt="Нежный букет цветов">
+</section>
+
+<section id="catalog">
+  <h2 class="section-title">Букеты с настроением</h2>
+  <p class="subtitle">Выбери цветы, а мы поможем сделать момент особенным.</p>
+  <div class="products" id="products"></div>
+</section>
+
+<section id="order">
+  <h2 class="section-title">Твой заказ</h2>
+  <p class="subtitle">Добавь букеты в корзину и отправь заявку в Telegram.</p>
+  <div class="cart">
+    <div id="cartItems">Корзина пока пустая 🌷</div>
+    <div class="total" id="total">Итого: 0 ₽</div>
+    <form id="orderForm">
+      <input id="customer" placeholder="Как к тебе обращаться?" required>
+      <input id="phone" placeholder="Телефон для связи" required>
+      <textarea id="comment" rows="3" placeholder="Пожелания к букету, дата доставки"></textarea>
+      <button class="btn" type="submit">Оформить через Telegram ↗</button>
+    </form>
+    <p style="font-size:12px;color:#88797b;line-height:1.5">Это демонстрационная витрина: заказ отправляется сообщением в Telegram. Онлайн-оплата и автоматическая обработка пока не подключены.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>Цветы от Насти</strong><br>
+  С теплом — для твоих особенных моментов 🌸<br>
+  <a href="https://t.me/wayip" style="color:#a95e74">Связаться в Telegram</a>
+</footer>
+
+<script>
+const bouquets=[
+{name:"Нежность",price:2900,desc:"Воздушный букет в пастельных оттенках",img:"photo-1490750967868-88aa4486c946"},
+{name:"Розовый рассвет",price:4200,desc:"Розы для самых тёплых признаний",img:"photo- roses"},
+{name:"Цветочное облако",price:3500,desc:"Лёгкая композиция на каждый повод",img:"photo-1523438885200-e635ba2c371e"},
+{name:"С любовью",price:3900,desc:"Элегантный букет с романтичным настроением",img:"photo-1518895949257-7621c3c786d7"},
+{name:"Тёплый день",price:3200,desc:"Солнечные оттенки и нежные цветы",img:"photo-1487070183336-b863922373d4"},
+{name:"Особенный",price:4500,desc:"Выразительный букет для важного события",img:"photo-1525310072745-f49212b5ac6d"}
+];
+const cart={};
+const fmt=n=>n.toLocaleString("ru-RU")+" ₽";
+document.getElementById("products").innerHTML=bouquets.map((b,i)=>`<article class="product"><img loading="lazy" src="https://images.unsplash.com/${b.img.startsWith("photo-")?b.img:"photo-1490750967868-88aa4486c946"}?auto=format&fit=crop&w=700&q=80" alt="${b.name}"><div class="info"><h3>${b.name}</h3><p>${b.desc}</p><span class="price">${fmt(b.price)}</span><button class="add" onclick="add(${i})" aria-label="Добавить ${b.name}">+</button></div></article>`).join("");
+function add(i){cart[i]=(cart[i]||0)+1;renderCart()}
+function change(i,d){cart[i]=(cart[i]||0)+d;if(cart[i]<=0)delete cart[i];renderCart()}
+function renderCart(){const ids=Object.keys(cart);document.getElementById("cartItems").innerHTML=ids.length?ids.map(i=>`<div class="cart-row"><span>${bouquets[i].name} — ${fmt(bouquets[i].price)}</span><span><button onclick="change(${i},-1)">−</button> ${cart[i]} <button onclick="change(${i},1)">+</button></span></div>`).join(""):"Корзина пока пустая 🌷";document.getElementById("total").textContent="Итого: "+fmt(ids.reduce((s,i)=>s+bouquets[i].price*cart[i],0))}
+document.getElementById("orderForm").addEventListener("submit",e=>{e.preventDefault();const ids=Object.keys(cart);if(!ids.length){alert("Сначала добавь букет в корзину 🌸");return}const lines=ids.map(i=>`${bouquets[i].name} × ${cart[i]} — ${fmt(bouquets[i].price*cart[i])}`).join("\n");const total=ids.reduce((s,i)=>s+bouquets[i].price*cart[i],0);const msg=`Здравствуйте! Хочу оформить заказ:\n${lines}\nИтого: ${fmt(total)}\nИмя: ${document.getElementById("customer").value}\nТелефон: ${document.getElementById("phone").value}\nПожелания: ${document.getElementById("comment").value}`;window.open("https://t.me/wayip?text="+encodeURIComponent(msg),"_blank")});
+</script>
+</body>
+</html>
